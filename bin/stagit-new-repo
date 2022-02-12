@@ -28,7 +28,7 @@ chown -R git:git "$srv/$repo.git"
 ln -svf "$srv/$repo.git" "$home/"
 
 echo "Creating a static page directory..."
-[ ! -d "$www/$repo" ] && echo "$repo already exists!" && exit 1
+[ -d "$www/$repo" ] && echo "$www/$repo already exists!" && exit 1
 mkdir "$www/$repo"
 chown -R git:git "$www/$repo"
 
