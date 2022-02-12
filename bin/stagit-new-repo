@@ -1,6 +1,6 @@
 #!/bin/sh
 
-# This script creates a new repository and index it with stagit.
+# This script creates a initializes a new git repository and index it with stagit.
 
 while getopts ":r:d:o:u:h" o; do case "${o}" in
   h) printf "Arguement for creating a new git repository:\\n  -r: Repository name\\n  -d: Short description of the project\\n  -o: Name of the owner\\n  -u: URI for cloning\\n  -h: Show this message\\n" && exit 1 ;;
@@ -17,7 +17,6 @@ www="/var/www/git"
 
 [ -d "$srv/$repo" ] && echo "$repo already exists!" && exit 1
 
-echo "Initializing git repository..."
 git init --bare "$srv/$repo.git"
 cp "/usr/local/share/post-receive" "$srv/$repo.git/hooks/post-receive"
 chmod u+x "$srv/$repo.git/hooks/post-receive"
@@ -27,9 +26,7 @@ echo "$desc" > "$srv/$repo.git/description"
 chown -R git:git "$srv/$repo.git"
 ln -svf "$srv/$repo.git" "$home/"
 
-echo "Creating a static page directory..."
 [ -d "$www/$repo" ] && echo "$www/$repo already exists!" && exit 1
 mkdir "$www/$repo"
 chown -R git:git "$www/$repo"
-
 /usr/local/bin/stagit-gen-index

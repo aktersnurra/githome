@@ -12,10 +12,8 @@ dst="$www/$(basename "$name" '.git')"
 [ ! -d dst ] && mkdir -p "$dst"
 cd "$dst" || exit 1
 
-echo "[stagit] building $dst"
 stagit "$src"
 
-echo "[stagit] linking $dst"
 ln -sf log.html index.html
 ln -sf ../style.css style.css
 ln -sf ../logo.png logo.png
