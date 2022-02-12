@@ -19,7 +19,7 @@ www="/var/www/git"
 
 echo "Initializing git repository..."
 git init --bare "$srv/$repo.git"
-cp "$/usr/local/share/post-receive" "$srv/$repo.git/hooks/post-receive"
+cp "/usr/local/share/post-receive" "$srv/$repo.git/hooks/post-receive"
 chmod u+x "$srv/$repo.git/hooks/post-receive"
 echo "git@$uri:$repo.git" > "$srv/$repo.git/url"
 echo "$owner" > "$srv/$repo.git/owner"
