@@ -3,4 +3,4 @@
 
 srv="/srv/git"
 www="/var/www/git"
-stagit-index "$repos"/*.git > "$www"/index.html
+stagit-index "$srv"/*.git > "$www"/index.html
