@@ -10,7 +10,7 @@ install:
 	chmod 755 $(DESTDIR)$(PREFIX)/bin/stagit-gen-index $(DESTDIR)$(PREFIX)/bin/stagit-new-repo
 	cp hooks/post-receive $(DESTDIR)$(PREFIX)/share/
 	if [ "$(PREFIX)" ]; then \
-		sed -iba 's:/usr/local:$(PREFIX)' $(DESTDIR)$(PREFIX)/bin/stagit-new-repo; \
+		sed -iba 's:/usr/local:$(PREFIX):' $(DESTDIR)$(PREFIX)/bin/stagit-new-repo; \
 		rm -f $(DESTDIR)$(PREFIX)/bin/stagit-new-repoba; \
 	fi
 
