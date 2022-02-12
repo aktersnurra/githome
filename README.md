@@ -1,6 +1,6 @@
-# GitHome
+# githome
 
-Install scripts for generating new repositories and making static websites with `stagit`.
+Scripts for generating new repositories and making static websites with `stagit`.
 
 ## Prerequisites
 
