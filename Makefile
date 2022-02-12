@@ -1,7 +1,7 @@
 .POSIX:
 
 ifndef PREFIX
-	PREFIX = /usr/local
+  PREFIX = /usr/local
 endif
 
 install:
