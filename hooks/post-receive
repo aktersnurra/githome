@@ -1,0 +1,21 @@
+#!/bin/sh
+
+# This hook will update the static website whenever with new commits on each push.
+
+export LC_TYPE="en_US.UTF-8"
+
+www="/var/www/git"
+src="$(pwd)"
+name=$(basename "$src")
+dst="$www/$(basename "$name" '.git')"
+
+[ ! -d dst ] && mkdir -p "$dst"
+cd "$dst" || exit 1
+
+echo "[stagit] building $dst"
+stagit "$src"
+
+echo "[stagit] linking $dst"
+ln -sf log.html index.html
+ln -sf ../style.css style.css
+ln -sf ../logo.png logo.png
