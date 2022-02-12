@@ -8,7 +8,7 @@ install:
 	mkdir -p ${DESTDIR}${PREFIX}/bin
 	cp -f bin/stagit-new-repo bin/stagit-gen-index ${DESTDIR}${PREFIX}/bin/
 	chmod 755 ${DESTDIR}${PREFIX}/bin/stagit-gen-index ${DESTDIR}${PREFIX}/bin/stagit-new-repo
-	mkdir /home/git/hooks
+	mkdir -p /home/git/hooks
 	cp hooks/post-receive /home/git/hooks/
 
 uninstall:
