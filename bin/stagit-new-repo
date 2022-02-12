@@ -15,7 +15,7 @@ home="/home/git"
 srv="/srv/git"
 www="/var/www/git"
 
-[ -d "$srv/$repo" ] && echo "$repo already exists!" && exit 1
+[ -d "$srv/$repo.git" ] && echo "$repo already exists!" && exit 1
 
 git init --bare "$srv/$repo.git"
 cp "/usr/local/share/post-receive" "$srv/$repo.git/hooks/post-receive"
