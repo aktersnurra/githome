@@ -1,4 +1,5 @@
 #!/bin/sh
+
 # Index repositories.
 
 srv="/srv/git"
