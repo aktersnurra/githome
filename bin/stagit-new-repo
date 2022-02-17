@@ -1,6 +1,6 @@
 #!/bin/sh
 
-# This script creates a initializes a new git repository and index it with stagit.
+# This script creates a initializes a new git repository and re-indexes all repositories.
 
 while getopts ":r:d:o:u:h" o; do case "${o}" in
   h) printf "Arguement for creating a new git repository:\\n  -r: Repository name\\n  -d: Short description of the project\\n  -o: Name of the owner\\n  -u: URI for cloning\\n  -h: Show this message\\n" && exit 1 ;;

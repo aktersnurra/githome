@@ -1,6 +1,6 @@
 #!/bin/sh
 
-# This hook will update the static website whenever with new commits on each push.
+# A post receive hook for updating the static webpage.
 
 export LC_TYPE="en_US.UTF-8"
 
