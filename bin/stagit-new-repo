@@ -29,4 +29,5 @@ ln -svf "$srv/$repo.git" "$home/"
 [ -d "$www/$repo" ] && echo "$www/$repo already exists!" && exit 1
 mkdir "$www/$repo"
 chown -R git:git "$www/$repo"
-/usr/local/bin/stagit-gen-index
+
+stagit-gen-index
