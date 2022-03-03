@@ -17,3 +17,5 @@ stagit "$src"
 ln -sf log.html index.html
 ln -sf ../style.css style.css
 ln -sf ../logo.png logo.png
+
+stagit-gen-index
