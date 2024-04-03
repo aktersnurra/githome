@@ -1,0 +1,22 @@
+#!/bin/sh
+
+# This script creates a initializes a new git repository and re-indexes all repositories.
+
+while getopts ":r:d:o:u:h" o; do case "$o" in
+	h) printf "Argument for creating a new git repository:\\n  -r: Repository name\\n  -d: Short description of the project\\n  -o: Name of the owner\\n -h: Show this message\\n" && exit 1 ;;
+	r) repo=${OPTARG} || exit 1 ;;
+	d) desc=${OPTARG} || exit 1 ;;
+	o) owner=${OPTARG} || exit 1 ;;
+	*) printf "Invalid option: -%s\\n" "$OPTARG" && exit 1 ;;
+	esac done
+
+home="/home/git"
+srv="/srv/git"
+
+[ -d "$srv/$repo.git" ] && echo "$repo already exists!" && exit 1
+
+git init --bare "$srv/$repo.git"
+echo "$owner" >"$srv/$repo.git/owner"
+echo "$desc" >"$srv/$repo.git/description"
+chown -R git:git "$srv/$repo.git"
+ln -s "$srv/$repo.git" "$home/"

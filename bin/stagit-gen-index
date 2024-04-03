@@ -1,7 +1,0 @@
-#!/bin/sh
-
-# Index repositories.
-
-srv="/srv/git"
-www="/var/www/git"
-stagit-index "$srv"/*.git > "$www"/index.html
